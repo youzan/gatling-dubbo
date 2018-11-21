@@ -1,4 +1,5 @@
 # Gatling-Dubbo
+`【招聘】Java开发、测试开发等岗位，有意者请将简历投递至<canyuns【@】163.com>`  
 
 Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2.6.5上测试，但理论上所有支持泛化调用的Dubbo版本都适用
 
