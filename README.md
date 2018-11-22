@@ -16,7 +16,7 @@ $ cd gatling-dubbo
 ```bash
 $ sbt assembly
 ```
-`如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置`
+如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置
 
 ### 将上述jar包拷贝到/your-path-to/gatling-charts-highcharts-bundle-2.3.1/lib目录
 ```bash
