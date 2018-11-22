@@ -28,7 +28,7 @@ case class DubboActionBuilder(interface: String, method: String, argTypes: Expre
     reference.setApplication(application)
     reference.setProtocol(protocol.protocol)
     reference.setGeneric(protocol.generic)
-    if (protocol.url == "") { //直连 or by etcd3
+    if (protocol.url == "") { //直连 or by etcd2
       val registry = new RegistryConfig
       registry.setProtocol(protocol.registryProtocol)
       registry.setAddress(protocol.registryAddress)

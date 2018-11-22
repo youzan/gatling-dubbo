@@ -8,7 +8,9 @@ class DubboTest extends Simulation {
   val dubboConfig = Dubbo
     .protocol("dubbo")
     .generic("true")
+    //直连某台Dubbo机器，只单独压测一台机器的水位
     .url("dubbo://IP地址:端口")
+    //或设置注册中心，压测该Dubbo应用集群的水位，支持ETCD2注册中心
     .registryProtocol("")
     .registryAddress("")
 

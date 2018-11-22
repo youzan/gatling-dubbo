@@ -1,5 +1,5 @@
 # Gatling-Dubbo
-`【招聘】Java开发、测试开发等岗位，有意者请将简历投递至<canyuns【@】163.com>`  
+`【招聘】Java开发、测试开发等岗位，有意者请将简历投递至<sunjun【@】youzan.com>`  
 
 Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2.6.5上测试，但理论上所有支持泛化调用的Dubbo版本都适用
 
@@ -16,6 +16,7 @@ $ cd gatling-dubbo
 ```bash
 $ sbt assembly
 ```
+`如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置`
 
 ### 将上述jar包拷贝到/your-path-to/gatling-charts-highcharts-bundle-2.3.1/lib目录
 ```bash
@@ -80,6 +81,8 @@ Generating reports...
 Reports generated in 0s.
 Please open the following file: /your-path-to/gatling-charts-highcharts-bundle-2.3.1/results/dubbotest-1542790909872/index.html
 ```
+
+`相比于泛化调用，原生API调用需要客户端载入Dubbo服务相应的API包，但有时候却拿不到，此外，当被测Dubbo应用多了，客户端需要载入多个API包，所以出于使用上的便利性，Dubbo压测插件使用泛化调用发起请求，但高并发情况下，泛化调用性能远不如原生API调用性能，如此不能表征Dubb应用的真正性能，此外，由于此时泛化调用响应时间成倍增长，导致Dubbo压测插件流量控制、压力控制等不准，解决办法是优化泛化调用性能，使之接近原生API调用的性能，请参考`[dubbo泛化调用性能优化](https://sq.163yun.com/blog/article/185512233177817088)
 
 ### License
 Apache License, Version 2.0
