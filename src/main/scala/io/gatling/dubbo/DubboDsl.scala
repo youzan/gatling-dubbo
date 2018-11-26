@@ -24,8 +24,8 @@ trait DubboDsl extends DubboCheckSupport {
   def dubbo(interface: String, method: String) = DubboProcessBuilder(interface, method)
 
   implicit def dubboProtocolBuilder2dubboProtocol(builder: DubboProtocolBuilder): DubboProtocol = builder.build
-  implicit def lambdaProcessBuilder2ActionBuilder(builder: DubboProcessBuilder): ActionBuilder = builder.build()
-  
+  implicit def dubboProcessBuilder2ActionBuilder(builder: DubboProcessBuilder): ActionBuilder = builder.build()
+
   def transformJsonDubboData(argTypeName: String, argValueName: String, session: Session): Session = {
     session.set(argTypeName, toArray(session(argTypeName).as[JList[String]]))
       .set(argValueName, toArray(session(argValueName).as[JList[Any]]))
