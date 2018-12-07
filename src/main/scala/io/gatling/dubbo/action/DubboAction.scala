@@ -51,8 +51,7 @@ class DubboAction(
         f.onComplete {
           case Success(result) =>
             val endTime = System.currentTimeMillis()
-            val resultMap = result.asInstanceOf[JMap[String, Any]]
-            val resultJson = objectMapper.writeValueAsString(resultMap)
+            val resultJson = objectMapper.writeValueAsString(result)
             val (newSession, error) = Check.check(resultJson, session, checks)
             error match {
               case None =>
