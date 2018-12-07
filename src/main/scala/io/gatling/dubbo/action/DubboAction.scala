@@ -43,7 +43,7 @@ class DubboAction(
         val startTime = System.currentTimeMillis()
         val f = Future {
           try {
-            genericService.$invoke(method, argTypes(session).get, argValues(session).get)
+            genericService.$invoke(method, argTypesArray, argValuesArray)
           } finally {
           }
         }
