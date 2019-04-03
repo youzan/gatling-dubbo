@@ -1,6 +1,7 @@
 package io.gatling.dubbo.action
 
-import java.util.{ Map => JMap }
+import java.util.concurrent.Executors
+import java.util.{Map => JMap}
 
 import com.alibaba.dubbo.rpc.service.GenericService
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -9,15 +10,14 @@ import io.gatling.commons.validation.Failure
 import io.gatling.core.CoreComponents
 import io.gatling.core.action._
 import io.gatling.core.check.Check
-import io.gatling.core.session.{ Expression, Session }
+import io.gatling.core.session.{Expression, Session}
 import io.gatling.core.stats.StatsEngine
 import io.gatling.core.stats.message.ResponseTimings
 import io.gatling.core.util.NameGen
 import io.gatling.dubbo.DubboCheck
 
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{ Success, Failure => FuFailure }
+import scala.concurrent.{ExecutionContext, Future}
+import scala.util.{Success, Failure => FuFailure}
 
 class DubboAction(
     interface:        String,
@@ -31,6 +31,8 @@ class DubboAction(
     val objectMapper: ObjectMapper,
     val next:         Action
 ) extends ExitableAction with NameGen {
+
+  implicit val ec = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(200))
 
   override def statsEngine: StatsEngine = coreComponents.statsEngine
 

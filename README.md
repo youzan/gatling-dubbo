@@ -12,11 +12,15 @@ $ cd gatling-dubbo
 ```
 
 ### 打包Jar
-需先安装sbt 1.2.1，详见[官方文档](https://www.scala-sbt.org/1.x/docs/Setup.html)，执行
+
+> 按需修改配置:  
+- 默认为4核8G内存机器配置了200线程池，与dubbo线程池一致，你也可以根据自己的机器配置调整线程池大小（DubboAction类的第35行）
+- 如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置
+
+项目依赖sbt，请安装sbt 1.2.1，详见[官方文档](https://www.scala-sbt.org/1.x/docs/Setup.html)，执行
 ```bash
 $ sbt assembly
 ```
-如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置
 
 ### 将上述jar包拷贝到/your-path-to/gatling-charts-highcharts-bundle-2.3.1/lib目录
 ```bash
