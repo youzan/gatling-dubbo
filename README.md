@@ -5,20 +5,18 @@ Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2
 
 ## 使用方法
 
-### clone代码
-```bash
-$ git clone https://github.com/youzan/gatling-dubbo.git
-$ cd gatling-dubbo
-```
-
 ### 打包Jar
 
 > 按需修改配置:  
 - 默认为4核8G内存机器配置了200线程池，与dubbo线程池一致，你也可以根据自己的机器配置调整线程池大小（DubboAction类的第35行）
 - 如果你使用其他Dubbo版本，请修改根目录下build.sbt中的libraryDependencies配置
 
+> 如果你不需要修改配置，可以略过以下打包步骤，直接[下载Jar包](https://github.com/youzan/gatling-dubbo/releases)
+
 项目依赖sbt，请安装sbt 1.2.1，详见[官方文档](https://www.scala-sbt.org/1.x/docs/Setup.html)，执行
 ```bash
+$ git clone https://github.com/youzan/gatling-dubbo.git
+$ cd gatling-dubbo
 $ sbt assembly
 ```
 
