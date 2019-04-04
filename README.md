@@ -47,7 +47,7 @@ assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeSca
 参考gatling-dubbo/src/test/scala目录下的DubboTest.scala和data.json
 
 `DubboTest.scala`具体说明请参考示例
-> 示例中展示的是单接口的例子，如果你想探测应用单机或集群真实水位，可以结合使用 randomSwitch 混合多接口且按生产环境真实的接口比例同时进行压测。
+> 示例中展示的是单接口的例子，如果你想探测应用单机的真实水位，可以结合使用 gatling 的 randomSwitch 混合多接口且按生产环境真实的接口比例同时进行压测。
 
 `data.json`
 ```json
