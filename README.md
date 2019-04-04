@@ -1,7 +1,7 @@
 # Gatling-Dubbo 2.0
 `【招聘】Java开发、测试开发等岗位，有意者请将简历投递至<sunjun【@】youzan.com>`  
 
-Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2.6.5上测试，但理论上所有Dubbo版本都适用，`2.0插件采用普通API调用方式执行压测请求，如果你想使用泛化调用方式执行压测请求，请参考`[1.0插件](https://github.com/youzan/gatling-dubbo/tree/v1.0)`，推荐使用2.0插件，即采用普通API调用方式，因为 dubbo 官方推荐生产上使用该方式，所以以同样的方式压测得到的结果，具有更好的参考意义，且2.0插件无需 dubbo 框架做任何改造。`
+Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2.6.5上测试，但理论上所有Dubbo版本都适用，`2.0插件采用普通API调用方式执行压测请求，如果你想使用泛化调用方式执行压测请求，请参考`[1.0插件](https://github.com/youzan/gatling-dubbo/tree/v1.0)`，推荐使用2.0插件，即采用普通API调用方式，因为 dubbo 官方推荐生产上使用该方式，所以以同样的方式压测得到的结果，更具有参考意义，且2.0插件无需 dubbo 框架做任何改造。`
 
 ## 使用方法
 
@@ -85,9 +85,9 @@ Simulation dubbo.DubboTest started...
 2019-04-04 10:12:44                                           5s elapsed
 ---- Requests ------------------------------------------------------------------
 > Global                                                   (OK=56     KO=0     )
-> 接口fansCrowdService.getTemplateCrowdList                  (OK=56     KO=0     )
+> com.youzan.xxx.XxxService                                (OK=56     KO=0     )
 
----- scenario of getTemplateCrowdList ------------------------------------------
+---- scenario of xxx -----------------------------------------------------------
 [--------------------------------------------------------------------------]  0%
           waiting: 0      / active: 10     / done:0
 ================================================================================
@@ -98,9 +98,9 @@ Simulation dubbo.DubboTest started...
 2019-04-04 10:13:11                                          31s elapsed
 ---- Requests ------------------------------------------------------------------
 > Global                                                   (OK=320    KO=0     )
-> 接口fansCrowdService.getTemplateCrowdList                  (OK=320    KO=0     )
+> com.youzan.xxx.XxxService                                (OK=320    KO=0     )
 
----- scenario of getTemplateCrowdList ------------------------------------------
+---- scenario of xxx -----------------------------------------------------------
 [--------------------------------------------------------------------------]  0%
           waiting: 0      / active: 10     / done:0
 ================================================================================
@@ -130,11 +130,11 @@ Generating reports...
 ================================================================================
 
 Reports generated in 0s.
-Please open the following file: /usr/local/gatling/gatling-charts-highcharts-bundle-2.3.1/results/dubbotest-1554343959840/index.html
+Please open the following file: /your-path-to/gatling-charts-highcharts-bundle-2.3.1/results/dubbotest-1554343959840/index.html
 ```
 
 打开上述报告查看更多压测信息：
-![](Reports.png)
+![Reports](Reports.png)
 
 
 ### License
