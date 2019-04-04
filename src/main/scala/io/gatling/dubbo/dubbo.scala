@@ -6,8 +6,8 @@ import io.gatling.core.check.{ Check, Extender, Preparer }
 package object dubbo {
 
   /**
-   * Type for Dubbo checks
-   */
+    * Type for Dubbo checks
+    */
   type DubboCheck = Check[String]
 
   val DubboStringExtender: Extender[DubboCheck, String] =

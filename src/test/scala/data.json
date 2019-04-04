@@ -1,10 +1,14 @@
 [
   {
-  "args_types1": ["com.xxx.xxxDTO"],
-  "args_values1": [{
-    "field1": "111",
-    "field2": "222",
-    "field3": "333"
-  }]
+    "kdtId": 160,
+    "page": 1
+  },
+  {
+    "kdtId": 160,
+    "page": 2
+  },
+  {
+    "kdtId": 160,
+    "page": 3
   }
 ]
