@@ -3,6 +3,8 @@
 
 Gatling的非官方Dubbo压测插件，基于Gatling 2.3.1，插件已在Dubbo 2.6.5上测试，但理论上所有Dubbo版本都适用，`2.0插件采用普通API调用方式执行压测请求，如果你想使用泛化调用方式执行压测请求，请参考`[1.0插件](https://github.com/youzan/gatling-dubbo/tree/v1.0)`，推荐使用2.0插件，即采用普通API调用方式，因为 dubbo 官方推荐生产上使用该方式，所以以同样的方式压测得到的结果，更具有参考意义，且2.0插件无需 dubbo 框架做任何改造。`
 
+> 区别于 Gatling-Dubbo 1.0 只支持 dubbo 压测，Gatling-Dubbo 2.0 不仅支持 dubbo 压测，还支持非 dubbo 的其他 java 调用压测，因为脚本中的 `f、param` 怎么写控制权在你手里，就像使用 Jmeter 压测 java 一样。
+
 ## 使用方法
 
 ### 打包Jar
