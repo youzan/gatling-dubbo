@@ -19,8 +19,7 @@ import scala.util.{ Success, Failure => UFailure }
 
 class DubboAction[A](
                       requestName:      Expression[String],
-                      f:                (Array[Object], Session) => A,
-                      param:            Array[Object],
+                      f:                (Session) => A,
                       val executor:     ExecutorService,
                       val objectMapper: ObjectMapper,
                       checks:           List[DubboCheck],
@@ -40,7 +39,7 @@ class DubboAction[A](
       val startTime = System.currentTimeMillis()
       val fu = Future {
         try {
-          f(param, session)
+          f(session)
         } finally {
         }
       }

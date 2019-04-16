@@ -10,7 +10,7 @@ import scala.language.implicitConversions
 
 trait DubboDsl extends DubboCheckSupport {
 
-  def dubbo[A](requestName: Expression[String], f: (Array[Object], Session) => A, param: Array[Object]) = DubboProcessBuilder[A](requestName, f, param)
+  def dubbo[A](requestName: Expression[String], f: (Session) => A) = DubboProcessBuilder[A](requestName, f)
 
   implicit def dubboProcessBuilder2ActionBuilder[A](builder: DubboProcessBuilder[A]): ActionBuilder = builder.build()
 

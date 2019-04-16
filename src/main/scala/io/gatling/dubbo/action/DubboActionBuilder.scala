@@ -10,13 +10,13 @@ import io.gatling.core.session.Expression
 import io.gatling.core.structure.ScenarioContext
 import io.gatling.dubbo.DubboCheck
 
-case class DubboActionBuilder[A](requestName: Expression[String], f: (Array[Object], Session) => A, param: Array[Object], checks: List[DubboCheck], threadPoolSize: Int) extends ActionBuilder {
+case class DubboActionBuilder[A](requestName: Expression[String], f: (Session) => A, checks: List[DubboCheck], threadPoolSize: Int) extends ActionBuilder {
 
   override def build(ctx: ScenarioContext, next: Action): Action = {
     import ctx._
     val executor = Executors.newFixedThreadPool(threadPoolSize)
     val objectMapper: ObjectMapper = new ObjectMapper()
-    new DubboAction[A](requestName, f, param, executor, objectMapper, checks, coreComponents, throttled, next)
+    new DubboAction[A](requestName, f, executor, objectMapper, checks, coreComponents, throttled, next)
   }
 
 }
