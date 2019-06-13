@@ -9,4 +9,5 @@ trait DubboCheckSupport {
   def jsonPath(path: Expression[String])(implicit extractorFactory: JsonPathExtractorFactory, jsonParsers: JsonParsers) =
     DubboJsonPathCheckBuilder.jsonPath(path)
 
+  def custom = DubboCustomCheck
 }

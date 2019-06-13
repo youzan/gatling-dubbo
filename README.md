@@ -49,7 +49,17 @@ assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeSca
 参考gatling-dubbo/src/test/scala目录下的DubboTest.scala和data.json
 
 `DubboTest.scala`具体说明请参考示例
-> 示例中展示的是单接口的例子，如果你想探测应用单机的真实水位，可以结合使用 gatling 的 randomSwitch 混合多接口且按生产环境真实的接口比例同时进行压测。
+
+> check 说明  
+目前 check 支持两种，jsonPath 和 custom，如果 dubbo 返回值可以转化为 json（如 PlainResult、Map 等），则推荐使用 jsonPath 校验结果，如果 dubbo 返回值是 String 等类型，则推荐使用 custom 校验结果，即自定义校验逻辑，custom 的示例如下：  
+```scala
+.check(custom((response: String) => {
+              print(response)
+              response == "expected response"
+            }, "option error message"))
+```
+
+> 示例中展示的是单接口的例子，如果你想探测应用单机的真实水位，可以结合使用 gatling 的 randomSwitch 混合多接口且按生产环境真实的接口比例同时进行压测。  
 
 `data.json`
 ```json
