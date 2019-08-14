@@ -146,8 +146,14 @@ Please open the following file: /your-path-to/gatling-charts-highcharts-bundle-2
 ```
 
 打开上述报告查看更多压测信息：
-![Reports](Reports.png)
+![Reports](png/Reports.png)
 
+## gatling-dubbo 在有赞的应用示例
+I 应用基线性能评估与容量规划：
+![Reports](png/example-1.png)  
 
-### License
+II 中心化限流效果验证：
+![Reports](png/example-2.png)
+
+## License
 Apache License, Version 2.0
